@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<p>{{appointment.date.date}}</p>
+    <ul>
+
+      <li>
+        <p>Врач: {{appointment.doc_spec_serv.doctorSpeciality.doctor}}</p>
+      </li>
+      <li>
+        <p>Специальность: {{appointment.doc_spec_serv.doctorSpeciality.speciality}}</p>
+      </li>
+      <li>
+        <p>Услуга: {{appointment.doc_spec_serv.service}}</p>
+      </li>
+    </ul>
+
+
+
+{% endblock %}

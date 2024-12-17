@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Активные записи</h1>
+
+    {% if appointment_list %}
+    <ul>
+
+      {% for appointment in appointment_list %}
+      <li>
+        {{appointment.patient}} - <a href="{% url 'appointment-detail' appointment.id %}">{{appointment.doc_spec_serv}}</a> ({{appointment.date.date}})
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>Активных записей нет</p>
+    {% endif %}
+    {% if past_appointment_list %}
+    <ul>
+        <p>Старые записи</p>
+      {% for appointment in past_appointment_list %}
+      <li>
+        <a href="{% url 'appointment-detail' appointment.id %}">{{appointment.doc_spec_serv}}</a> ({{appointment.date}})
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+{% endblock %}

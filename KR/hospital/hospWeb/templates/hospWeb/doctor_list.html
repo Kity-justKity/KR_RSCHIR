@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Список врачей</h1>
+
+    {% if doctor_list %}
+    <ul>
+
+      {% for doctor, spec in zip_doc_spec %}
+      <li>
+        <a href="{{ doctor.get_absolute_url }}">{{doctor}}</a>  ({{spec}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no doctors in the hospital.</p>
+    {% endif %}
+{% endblock %}

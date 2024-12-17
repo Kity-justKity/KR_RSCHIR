@@ -1,0 +1,8 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Да, удалить." />
+  </form>
+{% endblock %}

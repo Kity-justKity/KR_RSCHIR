@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    {% if speciality_list %}
+    <ul>
+
+      {% for spec in speciality_list %}
+      <li>
+        <p>{{spec}}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock %}

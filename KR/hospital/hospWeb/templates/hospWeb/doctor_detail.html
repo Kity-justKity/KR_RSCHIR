@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<p>{{doctor}}</p>
+<!--<input type="hidden" name="doctor_id" value={{doctor.id}} />-->
+
+    <ul>
+
+      {% for doc_spec in doctor.doctorspeciality_set.all %}
+      <li>
+        <p>Специальность {{doc_spec.speciality.name}}. Услуги по данной специальности: </p>
+          {% for doc_spec_serv in doc_spec.doctorspecialityservice_set.all %}
+
+            <p>{{doc_spec_serv.service.name}}</p>
+          {% endfor %}
+        <form action="{% url 'make-appointment' %}" method="get">
+          <button type="submit" name="doc_spec_id" value={{doc_spec.id}}>Записаться на прием</button>
+        </form>
+      </li>
+      {% endfor %}
+
+    </ul>
+
+{% endblock %}
